@@ -216,12 +216,13 @@ Predicted: supportive
 
 Sample | Text | True | Predicted | Confidence
 -- | -- | -- | -- | -- 
-1 | And a hearty F**K Y ** to anyone who sides with billionaire whales crying their soft little cucumber covered eyes out. Let them know they f ** ked up. | rant | warning  | 0.29 |
-2 | Ever since the top stocks GME, AMC, BB and NOK took off robinhood doesn't support them anymore. Does anyone have a quick substitute so the rest of us don't miss out on the action? | question | warning | 0.30
-3 | Why when I click on NOK, it says at the bottom This stock is not supported on robinhood.? | question | warning | 0.29
+1 | "TDOC is worth to buy" | supportive | supportive  | 0.28 |
+2 | "The CEO of NASDAQ pushed to halt trading to give investors a chance to recalibrate their positions." | warning | warning | 0.30
+3 | "To all who is supporting GME( movie land, the brick phone, etc..), we shall go to the next galaxy. Limit sell 1000. To those who wants to regulate the market because retail traders are causing pro..." | warning | warning | 0.29
 4 | Is still allowing purchases of GME. Most others have locked it out. You can still download webull and buy today if you want to. Don't let them stop you | supportive | supportive  | 0.29
 
 For #4 the fine-tuned LLM classified the post correctly with a confidence of 0.29. The post clearly shows a sense of help and support for others in the community
+
 
 ## Reflection
 
