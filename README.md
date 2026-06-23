@@ -116,9 +116,6 @@ rant
 
 Labels were collected from the LLM response. Since the respose could contain additional information based on their temperature, top-p or top-k parameters, the routine matched the actual label, or if the label was contained in the whole string.
 
-
-
-
 ## Evaluation
 
 
@@ -140,6 +137,8 @@ Per-class metrics (fine-tuned model):
 weighted avg       0.35      0.48      0.40        31
 ```
 
+---
+
 ### Fine-Tuning Confusion Matrix
 
 ```
@@ -155,6 +154,7 @@ E             │─────────────────────
    question   │  3  │  1  │  0  │  0  │
               └───────────────────────┘
 ```
+---
 
 ### Baseline Results
 
@@ -174,6 +174,8 @@ Per-class metrics (baseline):
 weighted avg       0.41      0.48      0.42        31
 ```
 
+---
+
 ### Results Comparison
 
 ```
@@ -189,28 +191,29 @@ Fine-tuned DistilBERT                  0.484
 Fine-tuning improvement: 0.000
 ```
 
+---
+
 ### Wrong Predictions
 
 --- #1 ---<br>
-Text:      We have grown to the kind of size we only dreamed of in the time it takes to get a bad nights sleep. We've got so many comments and submissions that we can't possibly even read them all, let alone act...
-True:      supportive
-Predicted: warning  
-
-    Analysis: Hard to figure out why the model classified it as warning, since no sense of urgency is in the post.
+- Text: "We have grown to the kind of size we only dreamed of in the time it takes to get a bad nights sleep. We've got so many comments and submissions that we can't possibly even read them all, let alone act..."
+- True: supportive
+- Predicted: warning
+- **Analysis: Hard to figure out why the model classified it as warning, since no sense of urgency is in the post.**
 
 --- #2 ---<br>
-Text:      Guys it's simple.  If you're selling YOURE hurting the stock price and a ur fellow stonkers.  If you sell you make less money if you buy you make more. It's literally supply and demand eco 101. For th...
-True:      supportive
-Predicted: warning  
-
-    Analysis: Here, the LLM probably considered the tone of the post as impossing and not helping
+- Text: "Guys it's simple.  If you're selling YOURE hurting the stock price and a ur fellow stonkers.  If you sell you make less money if you buy you make more. It's literally supply and demand eco 101. For th..."
+- True: supportive
+- Predicted: warning  
+- **Analysis: Here, the LLM probably considered the tone of the post as impossing and not helping**
 
 --- #3 ---<br>
-Text:      Short tf out of them WSB Army
-True:      warning
-Predicted: supportive
-    
-    Analysis: Probably this sentence the way was written does not provide the right context for a good classification
+- Text: "Short tf out of them WSB Army"
+- True: warning
+- Predicted: supportive
+- **Analysis: Probably this sentence the way was written does not provide the right context for a good classification**
+
+---
 
 ### Sample Classification Table
 
@@ -219,10 +222,9 @@ Sample | Text | True | Predicted | Confidence
 1 | "TDOC is worth to buy" | supportive | supportive  | 0.28 |
 2 | "The CEO of NASDAQ pushed to halt trading to give investors a chance to recalibrate their positions." | warning | warning | 0.30
 3 | "To all who is supporting GME( movie land, the brick phone, etc..), we shall go to the next galaxy. Limit sell 1000. To those who wants to regulate the market because retail traders are causing pro..." | warning | warning | 0.29
-4 | Is still allowing purchases of GME. Most others have locked it out. You can still download webull and buy today if you want to. Don't let them stop you | supportive | supportive  | 0.29
+4 | "Is still allowing purchases of GME. Most others have locked it out. You can still download webull and buy today if you want to. Don't let them stop you" | supportive | supportive  | 0.29
 
-For #4 the fine-tuned LLM classified the post correctly with a confidence of 0.29. The post clearly shows a sense of help and support for others in the community
-
+**Analysis For #4: The fine-tuned LLM classified the post correctly with a confidence of 0.29. The post clearly shows a sense of help and support for others in the community.**
 
 ## Reflection
 
